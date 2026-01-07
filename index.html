@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CENTRAL BARBERSHOP | Astana</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+	<header>
+		<div class="container nav-container">
+			<div class="logo">CENTRAL<span>.</span></div>
+
+			<ul class="nav-menu">
+				<li><a href="index.html" class="active">Главная</a></li>
+				<li><a href="pages/services.html">Услуги</a></li>
+				<li><a href="pages/masters.html">Барберы</a></li>
+				<li><a href="pages/branches.html">Филиалы</a></li>
+				<li><a href="pages/booking.html" class="btn btn-primary"
+						style="padding: 10px 25px; color: #000;">Записаться</a></li>
+			</ul>
+
+			<div class="hamburger">
+				<span class="bar"></span>
+				<span class="bar"></span>
+				<span class="bar"></span>
+			</div>
+		</div>
+	</header>
+
+	<section class="hero">
+		<div class="hero-overlay"></div>
+		<video class="hero-video" autoplay muted loop playsinline poster="assets/images/hero-poster.jpg">
+			<source src="assets/video/hero.mp4" type="video/mp4">
+		</video>
+
+		<div class="hero-content">
+			<h1>СТИЛЬ.<br>ТОЧНОСТЬ В КАЖДОЙ ДЕТАЛИ.</h1>
+			<p>ПРЕМИАЛЬНЫЙ СЕРВИС / МУЖСКОЙ ХАРАКТЕР / АСТАНА</p>
+
+			<div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+				<a href="pages/booking.html" class="btn btn-primary">Записаться Online</a>
+				<a href="pages/services.html" class="btn">Прайс-лист</a>
+			</div>
+
+			<div class="hero-badges">
+				<div class="badge">⏱ 40 МИНУТ СЛОТ</div>
+				<div class="badge">📱 WHATSAPP CONFIRMATION</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section-padding" style="background: #0e0e0e;">
+		<div class="container">
+			<div class="grid-3" style="text-align: center;">
+				<div class="card">
+					<h3 class="text-gold">TOP MASTERS</h3>
+					<p style="margin-top: 15px; color: #888;">Только лучшие мастера, прошедшие жесткую аттестацию
+						Central.</p>
+				</div>
+				<div class="card">
+					<h3 class="text-gold">ДИСЦИПЛИНА</h3>
+					<p style="margin-top: 15px; color: #888;">Мы ценим ваше время. Строгий тайминг и отсутствие
+						задержек.</p>
+				</div>
+				<div class="card">
+					<h3 class="text-gold">ATMOSPHERE</h3>
+					<p style="margin-top: 15px; color: #888;">Приватность, комфорт и сервис уровня закрытого клуба.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section-padding" id="gallery"
+		style="background: #0b0b0b; border-top: 1px solid rgba(255,255,255,0.05);">
+		<div class="container">
+			<div
+				style="display:flex; align-items:flex-end; justify-content:space-between; gap:20px; flex-wrap:wrap; margin-bottom: 30px;">
+				<div>
+					<h2 style="margin:0;">GALLERY</h2>
+					<p style="margin-top:10px; color:#666;">Атмосфера Central. Нажмите на фото.</p>
+				</div>
+			</div>
+
+			<div class="gallery-grid" id="galleryGrid">
+				<img src="assets/images/gallery/01.jpg" alt="Central gallery 1">
+				<img src="assets/images/gallery/02.jpg" alt="Central gallery 2">
+				<img src="assets/images/gallery/03.jpg" alt="Central gallery 3">
+				<img src="assets/images/gallery/04.jpg" alt="Central gallery 4">
+				<img src="assets/images/gallery/05.jpg" alt="Central gallery 5">
+				<img src="assets/images/gallery/06.jpg" alt="Central gallery 6">
+			</div>
+		</div>
+
+		<div class="lightbox" id="lightbox">
+			<button class="lightbox-close" id="lightboxClose">×</button>
+			<img class="lightbox-img" id="lightboxImg" alt="">
+		</div>
+	</section>
+
+	<footer>
+		<div class="container">
+			<div class="footer-grid">
+				<div class="footer-col">
+					<div class="logo" style="margin-bottom: 20px;">CENTRAL<span>.</span></div>
+					<p style="color: #888; font-size: 0.9rem;">Премиальный мужской сервис в Астане. Точность, стиль и
+						дисциплина.</p>
+				</div>
+				<div class="footer-col">
+					<h4>НАВИГАЦИЯ</h4>
+					<ul>
+						<li><a href="pages/services.html">Прайс-лист</a></li>
+						<li><a href="pages/masters.html">Команда</a></li>
+						<li><a href="pages/branches.html">Филиалы</a></li>
+						<li><a href="pages/booking.html">Онлайн запись</a></li>
+					</ul>
+				</div>
+				<div class="footer-col">
+					<h4>КОНТАКТЫ</h4>
+					<ul>
+						<li><a href="tel:+77718132022">+7 771 813 20 22</a> (Сарайшық)</li>
+						<li><a href="tel:+77080220817">+7 708 022 08 17</a> (Сығанақ)</li>
+						<li>Ежедневно: 10:00 — 22:00</li>
+					</ul>
+				</div>
+			</div>
+			<div class="copyright">
+				&copy; 2024 CENTRAL BARBERSHOP. All rights reserved.
+			</div>
+		</div>
+	</footer>
+
+	<script src="js/data.js"></script>
+	<script src="js/main.js"></script>
+</body>
+
+</html>

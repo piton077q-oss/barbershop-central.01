@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Команда | CENTRAL</title>
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+	<header>
+		<div class="container nav-container">
+			<div class="logo">CENTRAL<span>.</span></div>
+			<ul class="nav-menu">
+				<li><a href="../index.html">Главная</a></li>
+				<li><a href="services.html">Услуги</a></li>
+				<li><a href="masters.html" class="active">Барберы</a></li>
+				<li><a href="branches.html">Филиалы</a></li>
+				<li><a href="booking.html" class="btn btn-primary"
+						style="padding: 10px 25px; color: #000;">Записаться</a></li>
+			</ul>
+			<div class="hamburger">
+				<span class="bar"></span>
+				<span class="bar"></span>
+				<span class="bar"></span>
+			</div>
+		</div>
+	</header>
+
+	<section class="section-padding" style="padding-top: 150px;">
+		<div class="container">
+			<h2 style="text-align: center; margin-bottom: 60px;">БАРБЕРЫ</h2>
+			<div class="grid-3" id="mastersGrid"></div>
+		</div>
+	</section>
+
+	<footer>
+		<div class="container">
+			<div class="copyright">&copy; 2024 CENTRAL BARBERSHOP.</div>
+		</div>
+	</footer>
+
+	<script src="../js/data.js"></script>
+	<script src="../js/main.js"></script>
+	<script>
+		// Этот скрипт нужен только здесь, поэтому я оставил его внутри HTML
+		const mastersContainer = document.getElementById('mastersGrid');
+		let allBarbers = [];
+
+		CENTRAL_DATA.branches.forEach(branch => {
+			branch.barbers.forEach(barber => {
+				allBarbers.push({ ...barber, branchId: branch.id, branchName: branch.name.replace('Central ', '') });
+			});
+		});
+
+		allBarbers.sort((a, b) => (b.status === 'TOP') - (a.status === 'TOP'));
+
+		allBarbers.forEach(barber => {
+			const el = document.createElement('div');
+			el.className = 'master-card fade-in';
+			const imgSrc = barber.photo ? (`../assets/images/barbers/${barber.photo}`) : `../assets/images/barbers/placeholder.svg`;
+
+			el.innerHTML = `
+                <div style="width: 100%; height: 100%; background: #222;">
+                   <img src="${imgSrc}" class="master-img" alt="${barber.name}">
+                </div>
+                <div class="master-info">
+                    <span class="master-status">${barber.status} BARBER</span>
+                    <h3 style="color: #fff; margin: 5px 0;">${barber.name}</h3>
+                    <span style="display:block; font-size: 0.8rem; color:#888;">📍 ${barber.branchName}</span>
+                    <a href="booking.html?branch=${barber.branchId}&barber=${encodeURIComponent(barber.name)}" class="btn btn-primary" style="padding: 10px 0; width: 100%; text-align: center; margin-top: 15px;">
+                        ЗАПИСАТЬСЯ
+                    </a>
+                </div>
+            `;
+			mastersContainer.appendChild(el);
+		});
+	</script>
+</body>
+
+</html>

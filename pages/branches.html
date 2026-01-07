@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Локации | CENTRAL</title>
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+	<header>
+		<div class="container nav-container">
+			<div class="logo">CENTRAL<span>.</span></div>
+			<ul class="nav-menu">
+				<li><a href="../index.html">Главная</a></li>
+				<li><a href="services.html">Услуги</a></li>
+				<li><a href="masters.html">Барберы</a></li>
+				<li><a href="branches.html" class="active">Филиалы</a></li>
+				<li><a href="booking.html" class="btn btn-primary"
+						style="padding: 10px 25px; color: #000;">Записаться</a></li>
+			</ul>
+			<div class="hamburger">
+				<span class="bar"></span>
+				<span class="bar"></span>
+				<span class="bar"></span>
+			</div>
+		</div>
+	</header>
+
+	<section class="section-padding" style="padding-top: 150px; min-height: 80vh;">
+		<div class="container">
+			<h2 style="text-align: center; margin-bottom: 60px;">НАШИ ЛОКАЦИИ</h2>
+			<div class="grid-3" id="branchesGrid"></div>
+		</div>
+	</section>
+
+	<footer>
+		<div class="container">
+			<div class="copyright">&copy; 2024 CENTRAL BARBERSHOP.</div>
+		</div>
+	</footer>
+
+	<script src="../js/data.js"></script>
+	<script src="../js/main.js"></script>
+	<script>
+		const container = document.getElementById('branchesGrid');
+		CENTRAL_DATA.branches.forEach(branch => {
+			const card = document.createElement('div');
+			card.className = 'card fade-in';
+			card.style.display = 'flex';
+			card.style.flexDirection = 'column';
+			card.style.justifyContent = 'space-between';
+			const mapLink = `https://2gis.kz/astana/search/${encodeURIComponent(branch.address)}`;
+
+			card.innerHTML = `
+                <div>
+                    <h3 class="text-gold" style="font-size: 1.5rem; margin-bottom: 10px;">${branch.name.replace('Central ', '')}</h3>
+                    <p style="color: #fff; font-size: 1.1rem; margin-bottom: 5px;">${branch.address}</p>
+                    <div style="margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+                        <p style="color: #888; font-size: 0.8rem; margin-bottom: 5px;">ТЕЛЕФОН:</p>
+                        <a href="tel:${branch.whatsapp}" style="font-size: 1.2rem; font-family: 'Oswald';">${branch.phoneDisplay}</a>
+                    </div>
+                </div>
+                
+                <div style="display: flex; gap: 10px; margin-top: 30px;">
+                    <a href="${mapLink}" target="_blank" class="btn" style="flex: 1; text-align: center; padding: 12px 0;">Карта ↗</a>
+                    <a href="https://wa.me/${branch.whatsapp}" target="_blank" class="btn btn-primary" style="flex: 1; text-align: center; padding: 12px 0;">WhatsApp</a>
+                </div>
+            `;
+			container.appendChild(card);
+		});
+	</script>
+</body>
+
+</html>
